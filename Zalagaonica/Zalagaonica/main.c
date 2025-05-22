@@ -15,4 +15,5 @@ int main(void)
 	{
 		Objasnjenje();
 	}
+	StartUpit();
 }

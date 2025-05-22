@@ -1,2 +1,3 @@
-﻿  main.c
+﻿  functions.c
+C:\Users\student\Documents\GitHub\Zalagaonica\Zalagaonica\Zalagaonica\functions.c(63): warning C4717: 'Komanda': recursive on all control paths, function will cause runtime stack overflow
   Zalagaonica.vcxproj -> C:\Users\student\Documents\GitHub\Zalagaonica\Zalagaonica\Debug\Zalagaonica.exe
