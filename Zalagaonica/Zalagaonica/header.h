@@ -11,10 +11,12 @@ void Komanda(int, int);
 void KomandaHelp(void);
 void KomandaSave(int, int);
 void UcitajData(int*, int*);
+void PozoviKupce(int);
 
 typedef enum {
 	LIST,
 	HELP,
 	SAVE,
+	INSPECT,
 	DEFAULT
 } KOMANDA;

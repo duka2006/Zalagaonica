@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "header.h"
+#include "gameplay.c"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -38,6 +39,7 @@ KOMANDA DohvatiKomandu(const char* str) {
 	if (strcmp(str, "HELP") == 0) return HELP;
 	else if (strcmp(str, "SAVE") == 0) return SAVE;
 	else if (strcmp(str, "LIST") == 0) return LIST;
+	else if (strcmp(str, "INSPECT") == 0) return LIST;
 	else return DEFAULT;
 }
 
@@ -63,8 +65,10 @@ void Komanda(int balans, int dan) {
 }
 void StartNew()
 {
+
 	int balans = 1000;
 	int dan = 1;
+	PozoviKupce(dan);
 	Komanda(balans,dan);
 }
 void StartSave()
@@ -79,6 +83,7 @@ void KomandaHelp()
 	printf("\nHELP - prikazuje listu svih komandi");
 	printf("\nLIST - prikazuju sve objekte u skladistu");
 	printf("\nSAVE - sacuva trenutne podatke potrebne za igru");
+	printf("\nINSPECT - zove strucnjaka koji procijenjuje objekt");
 }
 void KomandaSave(int balans, int dan)
 {

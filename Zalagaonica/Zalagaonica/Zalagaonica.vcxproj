@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="functions.c" />
+    <ClCompile Include="gameplay.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <ItemGroup>

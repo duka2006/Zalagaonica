@@ -1,0 +1,10 @@
+antikni_mac = 5000
+antikni_sat = 1000 
+sat = 300
+figurica = 10
+kolektorska_figurica = 1000
+pistolj = 1000
+puska = 5000
+antikni_pistolj = 5000
+zlatna_poluga = 10000
+srebrna_poluga = 5000
