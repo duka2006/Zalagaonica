@@ -73,4 +73,5 @@ void ProsiriSkladiste(Skladiste*);
 void OslobodiSkladiste(Skladiste*);
 void SpremiSkladiste(FILE*,  const Skladiste*);
 void UcitajSkladiste(FILE*, Skladiste*);
+void GameEnd(int*);
 KOMANDA DohvatiKomandu(const char* str);

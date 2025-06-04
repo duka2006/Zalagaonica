@@ -1,5 +1,3 @@
-﻿  functions.c
-  gameplay.c
-  main.c
-  Generating Code...
-  Zalagaonica.vcxproj -> C:\Projects\Zalagaonica\Zalagaonica\Debug\Zalagaonica.exe
+﻿  gameplay.c
+C:\Users\student\Documents\GitHub\Zalagaonica\Zalagaonica\Zalagaonica\gameplay.c(19,9): warning C4098: 'PozoviKupce': 'void' function returning a value
+  Zalagaonica.vcxproj -> C:\Users\student\Documents\GitHub\Zalagaonica\Zalagaonica\Debug\Zalagaonica.exe

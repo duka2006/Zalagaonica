@@ -14,14 +14,20 @@ const float OSNOVNE_CIJENE[] = {
 };
 
 void PozoviKupce(int dan, int* balans, Skladiste* skladiste) {
-    int broj_kupaca = 3 + (dan - 1);  // 3 prvog dana, +1 svaki sljedeci
+    if (*balans < 0)
+    {
+        return 0;
+    }
+
+    int broj_kupaca = 1 + (dan - 1);// 3 prvog dana, +1 svaki sljedeci
+    if (dan > 10) broj_kupaca = 10;
     
     printf("\n=== KUPCI NA DAN %d ===\n", dan);
     for (int i = 0; i < broj_kupaca; i++) {
         VRSTA_PREDMETA vrsta = (VRSTA_PREDMETA)(rand() % BROJ_VRSTA);
         STANJE stanje = (STANJE)(rand() % 3);
         float osnovna_cijena = OSNOVNE_CIJENE[vrsta];
-        float kupac_cijena = osnovna_cijena * DohvatiFaktorStanja(stanje) * (0.8f + (rand() % 40) / 100.0f);
+        float kupac_cijena = osnovna_cijena * DohvatiFaktorStanja(stanje) * (0.7f + (rand() % 60) / 100.0f);
         
         printf("\nKupac %d nudi: %s (%s) za %.2f. Kupi? (Y/N): ", 
                i + 1, 
@@ -91,6 +97,11 @@ void SimulirajProdaju(int* balans, Skladiste* skladiste) {
         printf("Nista se nije prodalo.\n");
     }
     printf("Novi balans: %d\n", *balans);
+
+    if (*balans <= 0)
+    {
+        printf("Bankrotirao si!\n");
+    }
 }
 
 void PostaviCijenu(Skladiste* skladiste) {

@@ -60,9 +60,17 @@ void Komanda(int* balans, int* dan, Skladiste* skladiste) {
     case ENDDAY:
         (*dan)++;
         *balans -= 100;  // Dnevni troškovi
-        PozoviKupce(*dan, balans, skladiste);
-        SimulirajProdaju(balans, skladiste);
-        return;  // Završava dan
+        if (*balans < 0)
+        {
+            GameEnd(dan);
+            return;
+        }  
+        else
+        {
+            SimulirajProdaju(balans, skladiste);
+            PozoviKupce(*dan, balans, skladiste);
+            break;
+        }
     case DEFAULT:
         printf("\nNepoznata komanda: %s", input);
         break;
@@ -101,8 +109,7 @@ void StartNew() {
     int dan = 1;
     Skladiste skladiste;
     InicijalizirajSkladiste(&skladiste);
-    
-    printf("\n=== DAN 1 ===\n");
+
     PozoviKupce(dan, &balans, &skladiste);
     Komanda(&balans, &dan, &skladiste);
     OslobodiSkladiste(&skladiste);
@@ -173,8 +180,7 @@ void InicijalizirajSkladiste(Skladiste* skladiste) {
 
 void ProsiriSkladiste(Skladiste* skladiste) {
     skladiste->kapacitet *= 2;
-    skladiste->predmeti = (Predmet*)realloc(skladiste->predmeti, 
-                                          skladiste->kapacitet * sizeof(Predmet));
+    skladiste->predmeti = (Predmet*)realloc(skladiste->predmeti, skladiste->kapacitet * sizeof(Predmet));
 }
 
 void OslobodiSkladiste(Skladiste* skladiste) {
@@ -237,4 +243,10 @@ void UcitajSkladiste(FILE* fp, Skladiste* skladiste) {
     skladiste->kapacitet = skladiste->broj_predmeta + 5;
     skladiste->predmeti = (Predmet*)malloc(skladiste->kapacitet * sizeof(Predmet));
     fread(skladiste->predmeti, sizeof(Predmet), skladiste->broj_predmeta, fp);
+}
+void GameEnd(int* dan)
+{
+    printf("Bankrotirao si!\n");
+    printf("Poslovao si %d dana.\n", *dan);
+    printf("Hvala na igranju!");
 }
